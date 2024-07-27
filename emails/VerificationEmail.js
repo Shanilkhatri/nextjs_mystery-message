@@ -1,11 +1,11 @@
-import { Html, Head, Body, Title, Text, Link } from 'react-email';
+import { Html, Head, Body, Heading, Text, Link } from '@react-email/components';
 
 export const VerificationEmail = ({ username, otp }) => {
   return (
     <Html>
       <Head />
       <Body>
-        <Title>Verify Your Account</Title>
+        <Heading>Verify Your Account</Heading>
         <Text>
           Hello {username},
         </Text>
