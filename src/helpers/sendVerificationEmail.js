@@ -4,14 +4,16 @@ import VerificationEmail from "../../emails/VerificationEmail";
 
 export const sendVerificationEmail = async (email, username, otp) => {
     try {
-        await resend.emails.send({
+
+        // send email
+        var response = await resend.emails.send({
             from: 'onboarding@resend.dev',
             to: email,
             subject: 'Mystery Message - Verify Your Account',
             react: VerificationEmail({ username, otp }),
           });
-
-        console.log("Email sent successfully");
+          response = JSON.stringify(response)
+        console.log("Email sent successfully",response);
         return {
             success: true,
             message : "Email sent successfully"
