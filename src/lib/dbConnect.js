@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const connection = {};
 
 /**
@@ -13,8 +12,9 @@ export default async function dbConnect() {
         return;
     }
     try {
+        console.log("process.env.MONGODB_URI", process.env.NEXT_APP_MONGODB_URI);
         // Connect to the MongoDB URI specified in the environment
-        const db = await mongoose.connect(process.env.MONGODB_URI, {
+        const db = await mongoose.connect(process.env.NEXT_APP_MONGODB_URI, {
             // We need to use the useNewUrlParser so that we can use the new
             // MongoClient that's required for Mongoose 6
             useNewUrlParser: true,
